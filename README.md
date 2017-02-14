@@ -297,11 +297,13 @@ messages as fast as they come in.
 
 You can also use the prefetchCount option to increase the window of how
 many messages the server will send you before you need to ack (quality of service).
-`{ ack: true, prefetchCount: 1 }` is the default and will only send you one
+`{ ack: true, prefetchCount: 1, consumer: 'node-amqp' }` is the default and will only send you one
 message before you ack. Setting prefetchCount to 0 will make that window unlimited.
 If this option is used `q.shift()` should not be called. Instead the listener 
 function should take four parameters `(message, headers, deliveryInfo, ack)` and
 `ack.acknowledge()` should be called to ack a single message.
+
+The `consumer` option will change prefix in consumer tag to determine consumer service name. Default prefix is `node-amqp`.
 
 The `routingKeyInPayload` and `deliveryKeyInPayload` options determine
 if the reception process will inject the routingKey and deliveryKey,
