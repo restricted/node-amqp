@@ -518,7 +518,8 @@ is converted to JSON.
 
 `callback` is a function that will get called if the exchange is in confirm mode,
 the value sent will be true or false, this is the presense of a error so true, means
-an error occured and false, means the publish was successfull
+an error occured and false, means the publish was successfull. When confirm mode disabled
+returns object `{ id: ObjectId(), data: 'message' }`
 
 ### exchange.destroy(ifUnused = true)
 
